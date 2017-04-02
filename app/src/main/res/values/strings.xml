@@ -1,3 +1,8 @@
 <resources>
-    <string name="app_name">FinalProject-MichaelTZhenZhenM</string>
+    <string name="app_name">YouCoach</string>
+    <string-array name="levles">
+
+        <item>Mites</item>
+        <item>Squirts</item>
+    </string-array>
 </resources>
