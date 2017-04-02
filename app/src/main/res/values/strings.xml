@@ -1,8 +1,10 @@
 <resources>
     <string name="app_name">YouCoach</string>
     <string-array name="levles">
-
         <item>Mites</item>
         <item>Squirts</item>
+        <item>PeeWees</item>
+        <item>Bantams</item>
+        <item>Midgets</item>
     </string-array>
 </resources>
