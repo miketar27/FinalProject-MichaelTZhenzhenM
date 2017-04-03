@@ -9,20 +9,29 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
-    Spinner spinner;
-    ArrayAdapter<CharSequence> adapter;
+//    Spinner spinner;
+//    ArrayAdapter<CharSequence> adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        spinner=(Spinner) findViewById(R.id.spinner);
-        adapter= ArrayAdapter.createFromResource(this, R.array.levles, android.R.layout.simple_spinner_item);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinner.setAdapter(adapter);
-        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+
+        Spinner levels = (Spinner) findViewById(R.id.spinner);
+        ArrayAdapter<CharSequence> levelsAdapter = ArrayAdapter.createFromResource(
+                this, R.array.levels, R.layout.spinner_layout);
+        levelsAdapter.setDropDownViewResource(R.layout.spinner_layout);
+        levels.setAdapter(levelsAdapter);
+
+//        spinner=(Spinner) findViewById(spinner);
+//        adapter= ArrayAdapter.createFromResource(this, R.array.levles, android.R.layout.simple_spinner_item);
+//        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+//        spinner.setAdapter(adapter);
+        levels.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+//                ((TextView) parent.getChildAt(0)).setTextColor(Color.BLUE);
+//                ((TextView) parent.getChildAt(0)).setTextSize(20);
                 Toast.makeText(getBaseContext(),parent.getItemIdAtPosition(position)+ " selected", Toast.LENGTH_LONG).show();
             }
 
@@ -30,6 +39,8 @@ public class MainActivity extends AppCompatActivity {
             public void onNothingSelected(AdapterView<?> parent) {
             }
         });
+
+
 
     }
 }
