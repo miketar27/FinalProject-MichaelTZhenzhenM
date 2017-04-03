@@ -21,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
         levelsAdapter.setDropDownViewResource(R.layout.spinner_layout);
         levels.setAdapter(levelsAdapter);
 
+
         levels.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
