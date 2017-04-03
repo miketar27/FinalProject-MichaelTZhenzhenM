@@ -19,19 +19,13 @@ public class MainActivity extends AppCompatActivity {
 
         Spinner levels = (Spinner) findViewById(R.id.spinner);
         ArrayAdapter<CharSequence> levelsAdapter = ArrayAdapter.createFromResource(
-                this, R.array.levels, R.layout.spinner_layout);
+                this, R.array.group_levels, R.layout.spinner_layout);
         levelsAdapter.setDropDownViewResource(R.layout.spinner_layout);
         levels.setAdapter(levelsAdapter);
 
-//        spinner=(Spinner) findViewById(spinner);
-//        adapter= ArrayAdapter.createFromResource(this, R.array.levles, android.R.layout.simple_spinner_item);
-//        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-//        spinner.setAdapter(adapter);
         levels.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-//                ((TextView) parent.getChildAt(0)).setTextColor(Color.BLUE);
-//                ((TextView) parent.getChildAt(0)).setTextSize(20);
                 Toast.makeText(getBaseContext(),parent.getItemIdAtPosition(position)+ " selected", Toast.LENGTH_LONG).show();
             }
 
