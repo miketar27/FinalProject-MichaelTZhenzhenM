@@ -1,11 +1,27 @@
 <resources>
     <string name="app_name">YouSport</string>
     <string name="forgot_password"><u>I forgot my password</u></string>
+    <string name="search_hint">Testing</string>
     <string-array name="group_levels">
         <item>Mites</item>
         <item>Squirts</item>
         <item>PeeWees</item>
         <item>Bantams</item>
         <item>Midgets</item>
+    </string-array>
+    <string-array name="players">
+        <item>Mike</item>
+        <item>Sean</item>
+        <item>Jamie</item>
+        <item>Andy</item>
+        <item>Yang</item>
+        <item>Cathy</item>
+        <item>Boen</item>
+        <item>Dasheng</item>
+        <item>Nigel</item>
+        <item>Iris</item>
+        <item>Adriana</item>
+        <item>Ginger</item>
+        <item>Rae</item>
     </string-array>
 </resources>
