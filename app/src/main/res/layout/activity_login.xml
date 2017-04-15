@@ -28,7 +28,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        android:hint="Username or Password"
+        android:hint="Email Address"
         android:inputType="textEmailAddress" />
 
     <EditText
@@ -45,7 +45,9 @@
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:onClick="forgotPassword"
-        android:text="@string/forgot_password" />
+        android:text="@string/forgot_password"
+        android:textColor="#2979FF"
+        android:textStyle="italic" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -63,7 +65,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Signup" />
+            android:text="Signin" />
     </LinearLayout>
 
     <TextView
