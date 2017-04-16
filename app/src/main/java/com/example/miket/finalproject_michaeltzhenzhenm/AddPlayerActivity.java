@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -16,16 +15,21 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
 public class AddPlayerActivity extends AppCompatActivity {
 
+    FloatingActionButton fabAction, fabAdd, fabClear;
+    Animation fabOpen, fabClose, fabClockwise, fabAntiClockwise;
+    boolean isOpen = false;
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
     private String TAG = "AddPlayerActivity";
-
     /**
      * The {@link android.support.v4.view.PagerAdapter} that will provide
      * fragments for each of the sections. We use a
@@ -40,6 +44,7 @@ public class AddPlayerActivity extends AppCompatActivity {
      * The {@link ViewPager} that will host the section contents.
      */
     private ViewPager mViewPager;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -77,16 +82,47 @@ public class AddPlayerActivity extends AppCompatActivity {
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(mViewPager);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
+        fabAction = (FloatingActionButton) findViewById(R.id.fab_action);
+        fabAdd = (FloatingActionButton) findViewById(R.id.fab_add);
+        fabClear = (FloatingActionButton) findViewById(R.id.fab_clear);
+
+        fabOpen = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fab_open);
+        fabClose = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fab_close);
+        fabClockwise = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.rotate_clockwise);
+        fabAntiClockwise = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.rotate_anticlockwise);
+
+        fabAction.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+            public void onClick(View v) {
+                if (isOpen) {
+                    fabAdd.startAnimation(fabClose);
+                    fabClear.startAnimation(fabClose);
+                    fabAction.startAnimation(fabAntiClockwise);
+                    fabAdd.setClickable(false);
+                    fabClear.setClickable(false);
+                    isOpen = false;
+
+                    fabAdd.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                            startActivity(intent);
+                            return;
+                        }
+                    });
+
+
+                } else {
+                    Toast.makeText(getApplicationContext(), "Add Player or Clear Form", Toast.LENGTH_SHORT).show();
+                    fabAdd.startAnimation(fabOpen);
+                    fabClear.startAnimation(fabOpen);
+                    fabAction.startAnimation(fabClockwise);
+                    fabAdd.setClickable(true);
+                    fabClear.setClickable(true);
+                    isOpen = true;
+                }
             }
         });
-
-
     }
 
 
