@@ -57,6 +57,11 @@ public class LoginActivity extends AppCompatActivity {
         }
     }
 
+    public void goRegister(View view) {
+        Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
+        startActivity(intent);
+    }
+
     public void login(View view) {
 
         EditText emailLogIn = (EditText) findViewById(R.id.email_login_edit_text);
@@ -85,4 +90,5 @@ public class LoginActivity extends AppCompatActivity {
                     }
                 });
     }
+
 }
