@@ -37,15 +37,20 @@ public class MainActivity extends AppCompatActivity {
         lv.setAdapter(adapter);
 
         Spinner levels = (Spinner) findViewById(R.id.spinner);
+        // Create an ArrayAdapter using the string array and a default spinner layout
         ArrayAdapter<CharSequence> levelsAdapter = ArrayAdapter.createFromResource(
                 this, R.array.group_levels, R.layout.spinner_layout);
+        // Specify the layout to use when the list of choices appears
         levelsAdapter.setDropDownViewResource(R.layout.spinner_layout);
+        // Apply the adapter to the spinner
         levels.setAdapter(levelsAdapter);
 
 
         levels.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+//                String sSelected=parent.getItemAtPosition(position).toString();
+//                Toast.makeText(this,sSelected,Toast.LENGTH_SHORT).show();
                 Toast.makeText(getBaseContext(),parent.getItemIdAtPosition(position)+ " selected", Toast.LENGTH_LONG).show();
             }
 

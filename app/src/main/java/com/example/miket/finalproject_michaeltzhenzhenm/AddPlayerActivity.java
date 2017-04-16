@@ -58,6 +58,7 @@ public class AddPlayerActivity extends AppCompatActivity {
             }
         });
 
+
     }
 
 
@@ -124,7 +125,7 @@ public class AddPlayerActivity extends AppCompatActivity {
                 case 1:
                     return "Parent Info";
                 case 2:
-                    return "Miscelaneous";
+                    return "Miscellaneous";
             }
             return null;
         }

@@ -30,5 +30,28 @@
         android:paddingTop="15dp"
         android:text="Birth Date" />
 
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <Spinner
+            android:id="@+id/months_spinner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"></Spinner>
+
+        <Spinner
+            android:id="@+id/days_of_month_spinner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"></Spinner>
+
+        <Spinner
+            android:id="@+id/years_spinner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"></Spinner>
+
+
+    </LinearLayout>
+
 
 </LinearLayout>
