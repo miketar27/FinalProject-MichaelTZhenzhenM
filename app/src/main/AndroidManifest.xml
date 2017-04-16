@@ -18,12 +18,14 @@
         </activity>
         <activity
             android:name=".LoginActivity"
-            android:label="YouSport- Login" />
+            android:label="YouSport" />
         <activity
             android:name=".AddPlayerActivity"
             android:label="@string/title_activity_add_player"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".RegisterActivity"></activity>
+        <activity
+            android:name=".RegisterActivity"
+            android:label="Register"></activity>
     </application>
 
 </manifest>

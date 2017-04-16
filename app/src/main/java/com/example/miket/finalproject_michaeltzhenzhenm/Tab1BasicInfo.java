@@ -17,6 +17,7 @@ public class Tab1BasicInfo extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.tab1_basic_info, container, false);
+
         Spinner monthSpinner = (Spinner) rootView.findViewById(R.id.months_spinner);
         // Create an ArrayAdapter using the string array and a default spinner layout
         ArrayAdapter<CharSequence> monthAdapter = ArrayAdapter.createFromResource(getActivity(),

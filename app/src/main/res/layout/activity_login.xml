@@ -44,7 +44,6 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        android:onClick="forgotPassword"
         android:text="@string/forgot_password"
         android:textColor="#2979FF"
         android:textStyle="italic" />
