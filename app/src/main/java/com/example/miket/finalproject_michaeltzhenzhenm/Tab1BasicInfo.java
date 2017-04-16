@@ -27,22 +27,22 @@ public class Tab1BasicInfo extends Fragment {
         monthSpinner.setAdapter(monthAdapter);
 
         Spinner dayOfMonthSpinner = (Spinner) rootView.findViewById(R.id.days_of_month_spinner);
-        // Create an ArrayAdapter using the string array and a default spinner layout
         ArrayAdapter<CharSequence> dayOfMonthAdapter = ArrayAdapter.createFromResource(getActivity(),
                 R.array.days_of_month_array, R.layout.spinner_layout);
-        // Specify the layout to use when the list of choices appears
-        monthAdapter.setDropDownViewResource(R.layout.spinner_layout);
-        // Apply the adapter to the spinner
+        dayOfMonthAdapter.setDropDownViewResource(R.layout.spinner_layout);
         dayOfMonthSpinner.setAdapter(dayOfMonthAdapter);
 
         Spinner yearsSpinner = (Spinner) rootView.findViewById(R.id.years_spinner);
-        // Create an ArrayAdapter using the string array and a default spinner layout
         ArrayAdapter<CharSequence> yearsAdapter = ArrayAdapter.createFromResource(getActivity(),
                 R.array.years_array, R.layout.spinner_layout);
-        // Specify the layout to use when the list of choices appears
-        monthAdapter.setDropDownViewResource(R.layout.spinner_layout);
-        // Apply the adapter to the spinner
+        yearsAdapter.setDropDownViewResource(R.layout.spinner_layout);
         yearsSpinner.setAdapter(yearsAdapter);
+
+        Spinner levelsAddSpinner = (Spinner) rootView.findViewById(R.id.levels_add_spinner);
+        ArrayAdapter<CharSequence> levelsAddAdapter = ArrayAdapter.createFromResource(getActivity(),
+                R.array.group_levels, R.layout.spinner_layout);
+        levelsAddAdapter.setDropDownViewResource(R.layout.spinner_layout);
+        levelsAddSpinner.setAdapter(levelsAddAdapter);
 
         return rootView;
     }

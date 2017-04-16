@@ -7,7 +7,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.example.miket.finalproject_michaeltzhenzhenm.AddPlayerActivity$PlaceholderFragment">
+    tools:context="com.example.miket.finalproject_michaeltzhenzhenm.AddPlayerActivity">
 
     <EditText
         android:layout_width="match_parent"
@@ -32,7 +32,7 @@
 
     <LinearLayout
         android:layout_width="wrap_content"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="horizontal">
 
         <Spinner
@@ -50,8 +50,18 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"></Spinner>
 
-
     </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="15dp"
+        android:text="Group Level" />
+
+    <Spinner
+        android:id="@+id/levels_add_spinner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"></Spinner>
 
 
 </LinearLayout>

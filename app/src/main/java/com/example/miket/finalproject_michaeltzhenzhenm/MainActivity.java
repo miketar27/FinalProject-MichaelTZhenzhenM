@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
                 arrayPlayers);
         lv.setAdapter(adapter);
 
-        Spinner levels = (Spinner) findViewById(R.id.spinner);
+        Spinner levels = (Spinner) findViewById(R.id.levels_main_spinner);
         // Create an ArrayAdapter using the string array and a default spinner layout
         ArrayAdapter<CharSequence> levelsAdapter = ArrayAdapter.createFromResource(
                 this, R.array.group_levels, R.layout.spinner_layout);
