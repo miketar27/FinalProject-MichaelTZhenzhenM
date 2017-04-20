@@ -3,6 +3,7 @@ package com.example.miket.finalproject_michaeltzhenzhenm;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Menu;
@@ -24,6 +25,7 @@ import java.util.Arrays;
 
 public class MainActivity extends AppCompatActivity {
     ArrayAdapter<String> adapter;
+    FloatingActionButton fabAdd;
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
     private String TAG = "MainActivity";
@@ -81,6 +83,17 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
+            }
+        });
+
+
+        fabAdd = (FloatingActionButton) findViewById(R.id.fab_add);
+
+        fabAdd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), AddPlayerActivity.class);
+                startActivity(intent);
             }
         });
     }

@@ -18,7 +18,7 @@ public class Tab1BasicInfo extends Fragment {
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.tab1_basic_info, container, false);
 
-        Spinner monthSpinner = (Spinner) rootView.findViewById(R.id.months_spinner);
+        Spinner monthSpinner = (Spinner) rootView.findViewById(R.id.player_bday_months_spinner);
         // Create an ArrayAdapter using the string array and a default spinner layout
         ArrayAdapter<CharSequence> monthAdapter = ArrayAdapter.createFromResource(getActivity(),
                 R.array.months_array, R.layout.spinner_layout);
@@ -27,13 +27,13 @@ public class Tab1BasicInfo extends Fragment {
         // Apply the adapter to the spinner
         monthSpinner.setAdapter(monthAdapter);
 
-        Spinner dayOfMonthSpinner = (Spinner) rootView.findViewById(R.id.days_of_month_spinner);
+        Spinner dayOfMonthSpinner = (Spinner) rootView.findViewById(R.id.player_bday_day_spinner);
         ArrayAdapter<CharSequence> dayOfMonthAdapter = ArrayAdapter.createFromResource(getActivity(),
                 R.array.days_of_month_array, R.layout.spinner_layout);
         dayOfMonthAdapter.setDropDownViewResource(R.layout.spinner_layout);
         dayOfMonthSpinner.setAdapter(dayOfMonthAdapter);
 
-        Spinner yearsSpinner = (Spinner) rootView.findViewById(R.id.years_spinner);
+        Spinner yearsSpinner = (Spinner) rootView.findViewById(R.id.player_bday_year_spinner);
         ArrayAdapter<CharSequence> yearsAdapter = ArrayAdapter.createFromResource(getActivity(),
                 R.array.years_array, R.layout.spinner_layout);
         yearsAdapter.setDropDownViewResource(R.layout.spinner_layout);

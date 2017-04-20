@@ -10,10 +10,4 @@
         app:showAsAction="always">
     </item>
 
-    <item
-        android:id="@+id/add_person"
-        android:icon="@drawable/ic_person_add_white_24dp"
-        android:title="Add Person"
-        app:showAsAction="ifRoom"></item>
-
 </menu>

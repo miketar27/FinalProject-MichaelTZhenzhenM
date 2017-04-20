@@ -1,23 +1,19 @@
 package com.example.miket.finalproject_michaeltzhenzhenm;
 
-import android.media.Image;
-
 /**
  * Created by miket on 4/16/2017.
  */
 
 public class Player extends Person {
-    private int birthMonth;
-    private int birthDay;
-    private int birthYear;
-    private int jerseyNumber;
+    private String birthMonth;
+    private String birthDay;
+    private String birthYear;
+    private String jerseyNumber;
     private String gender;
     private String groupLevel;
-    private Image playerPicture;
 
-    public Player(String firstName, String lastName, String emailAddress, int jerseyNumber,
-                  int birthMonth, int birthDay, int birthYear, String gender, String groupLevel,
-                  Image playerPicture) {
+    public Player(String firstName, String lastName, String emailAddress, String jerseyNumber,
+                  String birthMonth, String birthDay, String birthYear, String gender, String groupLevel) {
         super(firstName, lastName, emailAddress);
         this.jerseyNumber = jerseyNumber;
         this.gender = gender;
@@ -27,11 +23,12 @@ public class Player extends Person {
         this.birthYear = birthYear;
     }
 
-    public int getJerseyNumber() {
+
+    public String getJerseyNumber() {
         return jerseyNumber;
     }
 
-    public void setJerseyNumber(int jerseyNumber) {
+    public void setJerseyNumber(String jerseyNumber) {
         this.jerseyNumber = jerseyNumber;
     }
 
@@ -51,11 +48,28 @@ public class Player extends Person {
         this.groupLevel = groupLevel;
     }
 
-    public Image getPlayerPicture() {
-        return playerPicture;
+
+    public String getBirthMonth() {
+        return birthMonth;
     }
 
-    public void setPlayerPicture(Image playerPicture) {
-        this.playerPicture = playerPicture;
+    public void setBirthMonth(String birthMonth) {
+        this.birthMonth = birthMonth;
+    }
+
+    public String getBirthDay() {
+        return birthDay;
+    }
+
+    public void setBirthDay(String birthDay) {
+        this.birthDay = birthDay;
+    }
+
+    public String getBirthYear() {
+        return birthYear;
+    }
+
+    public void setBirthYear(String birthYear) {
+        this.birthYear = birthYear;
     }
 }

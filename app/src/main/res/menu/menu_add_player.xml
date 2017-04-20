@@ -3,8 +3,27 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.example.miket.finalproject_michaeltzhenzhenm.AddPlayerActivity">
     <item
+        android:id="@+id/action_clear_all_tabs"
+        android:orderInCategory="100"
+        android:title="Clear All Tabs"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/action_clear_this_tab"
+        android:orderInCategory="100"
+        android:title="Clear This Tab"
+        app:showAsAction="never" />
+
+    <item
         android:id="@+id/action_settings"
         android:orderInCategory="100"
         android:title="@string/action_settings"
         app:showAsAction="never" />
+
+    <item
+        android:id="@+id/add_person"
+        android:icon="@drawable/ic_action_save"
+        android:title="Add Person"
+        app:showAsAction="ifRoom"></item>
+
 </menu>
