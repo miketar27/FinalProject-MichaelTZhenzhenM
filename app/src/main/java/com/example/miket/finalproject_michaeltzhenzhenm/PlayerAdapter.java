@@ -62,6 +62,12 @@ public class PlayerAdapter extends RecyclerView.Adapter<PlayerAdapter.ViewHolder
         return mDataset.size();
     }
 
+    public void setFilter(ArrayList<Player> newList) {
+        mDataset = new ArrayList<>();
+        mDataset.addAll(newList);
+        notifyDataSetChanged();
+    }
+
     // Provide a reference to the views for each data item
     // Complex data items may need more than one view per item, and
     // you provide access to all the views for a data item in a view holder
@@ -81,4 +87,5 @@ public class PlayerAdapter extends RecyclerView.Adapter<PlayerAdapter.ViewHolder
             mJerseyNumber = (TextView) v.findViewById(R.id.roster_player_jersey_number);
         }
     }
+
 }

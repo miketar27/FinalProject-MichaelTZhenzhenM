@@ -56,6 +56,8 @@ public class AddPlayerActivity extends AppCompatActivity {
     private File photoFile;
     private StorageReference mStorageRef;
     private Uri fileToUpload;
+
+
     /**
      * The {@link android.support.v4.view.PagerAdapter} that will provide
      * fragments for each of the sections. We use a
@@ -181,8 +183,6 @@ public class AddPlayerActivity extends AppCompatActivity {
         uniqueParent2.setValue(parent2);
 
 
-
-
         EditText ePlayerFirstName = (EditText) findViewById(R.id.player_first_name);
         EditText ePlayerLastName = (EditText) findViewById(R.id.player_last_name);
         EditText ePlayerEmail = (EditText) findViewById(R.id.player_email);
@@ -223,16 +223,27 @@ public class AddPlayerActivity extends AppCompatActivity {
                 playerBdayMonth, playerBdayDay, playerBdayYear, gender, groupLevelAdd, filename, parent1Uid, parent2Uid);
         playerRef.push().setValue(player);
 
-//        uniqueParent1.setValue(player);
-        Log.d("playeruid: ", parent1Uid);
 
+        Toast.makeText(AddPlayerActivity.this, playerFirstName + " " + playerLastName + "'s Profile Added Successfully!", Toast.LENGTH_SHORT).show();
 
-//        uniqueParent2.setValue(player);
-        Log.d("playeruid: ", parent2Uid);
+        eParent1FirstName.setText(null);
+        eParent1LastName.setText(null);
+        eParent1Email.setText(null);
+        eParent1PhoneNum.setText(null);
 
+        eParent2FirstName.setText(null);
+        eParent2LastName.setText(null);
+        eParent2Email.setText(null);
+        eParent2PhoneNum.setText(null);
 
-        Toast.makeText(AddPlayerActivity.this, playerFirstName + " " + playerLastName + "Profile Added Successfully!", Toast.LENGTH_SHORT).show();
-
+        ePlayerFirstName.setText(null);
+        ePlayerLastName.setText(null);
+        ePlayerEmail.setText(null);
+        ePlayerJerseyNumber.setText(null);
+        ePlayerBdayMonth.setSelection(0);
+        ePlayerBdayDay.setSelection(0);
+        ePlayerBdayYear.setSelection(0);
+        eGroupLevelAdd.setSelection(0);
     }
 
     public void onGenderClick(View view) {
@@ -272,7 +283,6 @@ public class AddPlayerActivity extends AppCompatActivity {
                 }
         }
     }
-
 
     public void onTitleClickParent2(View view) {
         boolean titleChecked = ((RadioButton) view).isChecked();
@@ -350,7 +360,6 @@ public class AddPlayerActivity extends AppCompatActivity {
             fileToUpload = data.getData();
         }
     }
-
 
     @Override
     public void onStart() {

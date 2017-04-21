@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
+import android.support.v4.view.MenuItemCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -28,7 +29,7 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements SearchView.OnQueryTextListener {
     ArrayAdapter<String> adapter;
     FloatingActionButton fabAdd;
     FirebaseDatabase database;
@@ -37,15 +38,15 @@ public class MainActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
     private String TAG = "MainActivity";
+    private PlayerAdapter mAdpater;
     private RecyclerView mRecyclerView;
-    private RecyclerView.Adapter mAdapter;
+    //    private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
 
         database = FirebaseDatabase.getInstance();
         playerRef = database.getReference("players");
@@ -63,8 +64,8 @@ public class MainActivity extends AppCompatActivity {
         mRecyclerView.setLayoutManager(mLayoutManager);
 
         // specify an adapter (see also next example)
-        mAdapter = new PlayerAdapter(players, this);
-        mRecyclerView.setAdapter(mAdapter);
+        mAdpater = new PlayerAdapter(players, this);
+        mRecyclerView.setAdapter(mAdpater);
 
         playerRef.addChildEventListener(new ChildEventListener() {
             @Override
@@ -72,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
                 Player player = dataSnapshot.getValue(Player.class);
                 players.add(player);
 
-                mAdapter.notifyDataSetChanged();
+                mAdpater.notifyDataSetChanged();
             }
 
             @Override
@@ -95,12 +96,6 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
-
-
-
-
-
-
 
         mAuth = FirebaseAuth.getInstance();
         mAuthListener = new FirebaseAuth.AuthStateListener() {
@@ -128,7 +123,7 @@ public class MainActivity extends AppCompatActivity {
 //                MainActivity.this,
 //                android.R.layout.simple_list_item_1,
 //                arrayPlayers);
-//        lv.setAdapter(adapter);
+//        lv.setAdapter(adapter)
 
         Spinner levels = (Spinner) findViewById(R.id.levels_main_spinner);
         // Create an ArrayAdapter using the string array and a default spinner layout
@@ -143,8 +138,7 @@ public class MainActivity extends AppCompatActivity {
         levels.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-//                String sSelected=parent.getItemAtPosition(position).toString();
-//                Toast.makeText(this,sSelected,Toast.LENGTH_SHORT).show();
+
                 Toast.makeText(getBaseContext(),parent.getItemIdAtPosition(position)+ " selected", Toast.LENGTH_LONG).show();
 
             }
@@ -186,20 +180,23 @@ public class MainActivity extends AppCompatActivity {
         inflater.inflate(R.menu.menu_unselected, menu);
 
         MenuItem item = menu.findItem(R.id.menuSearch);
-        SearchView searchView = (SearchView) item.getActionView();
+        SearchView searchView = (SearchView) MenuItemCompat.getActionView(item);
+        searchView.setOnQueryTextListener(this);
+//        return true;
+//        SearchView searchViewView = (SearchView) item.getActionView();
 
-        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-            @Override
-            public boolean onQueryTextSubmit(String query) {
-                return false;
-            }
-
-            @Override
-            public boolean onQueryTextChange(String newText) {
-                adapter.getFilter().filter(newText);
-                return false;
-            }
-        });
+//        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+//            @Override
+//            public boolean onQueryTextSubmit(String query) {
+//                return false;
+//            }
+//
+//            @Override
+//            public boolean onQueryTextChange(String newText) {
+//                adapter.getFilter().filter(newText);
+//                return false;
+//            }
+//        });
         return super.onCreateOptionsMenu(menu);
     }
 
@@ -211,15 +208,28 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
                 return true;
 
-
             default:
                 // If we got here, the user's action was not recognized.
                 // Invoke the superclass to handle it.
                 return super.onOptionsItemSelected(item);
-
         }
-
     }
 
+    @Override
+    public boolean onQueryTextSubmit(String query) {
+        return false;
+    }
 
+    @Override
+    public boolean onQueryTextChange(String newText) {
+        newText = newText.toLowerCase();
+        ArrayList<Player> newList = new ArrayList<>();
+        for (Player typedPlayer : players) {
+            String name = typedPlayer.getFirstName().toLowerCase();
+            if (name.startsWith(newText))
+                newList.add(typedPlayer);
+        }
+        mAdpater.setFilter(newList);
+        return false;
+    }
 }
