@@ -9,6 +9,9 @@ public class Person {
     protected String lastName;
     protected String emailAddress;
 
+    public Person() {
+
+    }
 
     public Person(String firstName, String lastName, String emailAddress) {
         this.firstName = firstName;

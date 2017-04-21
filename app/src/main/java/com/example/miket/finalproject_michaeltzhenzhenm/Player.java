@@ -15,6 +15,9 @@ public class Player extends Person {
     private String uniqueParent1ID;
     private String uniqueParent2ID;
 
+    public Player() {
+
+    }
 
     public Player(String firstName, String lastName, String emailAddress, String jerseyNumber,
                   String birthMonth, String birthDay, String birthYear, String gender, String groupLevel,
@@ -30,6 +33,7 @@ public class Player extends Person {
         this.uniqueParent1ID = uniqueParent1ID;
         this.uniqueParent2ID = uniqueParent2ID;
     }
+
 
     public String getBirthMonth() {
         return birthMonth;

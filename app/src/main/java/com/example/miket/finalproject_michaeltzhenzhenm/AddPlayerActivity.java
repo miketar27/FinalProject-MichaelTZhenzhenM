@@ -80,9 +80,9 @@ public class AddPlayerActivity extends AppCompatActivity {
         mStorageRef = FirebaseStorage.getInstance().getReference();
 
         database = FirebaseDatabase.getInstance();
-        playerRef = database.getReference("player");
-        parent1Ref = database.getReference("parent 1");
-        parent2Ref = database.getReference("parent 2");
+        playerRef = database.getReference("players");
+        parent1Ref = database.getReference("parents 1");
+        parent2Ref = database.getReference("parents 2");
 
         mAuth = FirebaseAuth.getInstance();
         mAuthListener = new FirebaseAuth.AuthStateListener() {

@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -12,28 +14,93 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.ListView;
 import android.widget.SearchView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.ChildEventListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 
 public class MainActivity extends AppCompatActivity {
     ArrayAdapter<String> adapter;
     FloatingActionButton fabAdd;
+    FirebaseDatabase database;
+    DatabaseReference playerRef;
+    ArrayList<Player> players;
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
     private String TAG = "MainActivity";
+    private RecyclerView mRecyclerView;
+    private RecyclerView.Adapter mAdapter;
+    private RecyclerView.LayoutManager mLayoutManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
+        database = FirebaseDatabase.getInstance();
+        playerRef = database.getReference("players");
+
+        players = new ArrayList<>();
+
+        mRecyclerView = (RecyclerView) findViewById(R.id.roster_recycler_view);
+
+        // use this setting to improve performance if you know that changes
+        // in content do not change the layout size of the RecyclerView
+        mRecyclerView.setHasFixedSize(true);
+
+        // use a linear layout manager
+        mLayoutManager = new LinearLayoutManager(this);
+        mRecyclerView.setLayoutManager(mLayoutManager);
+
+        // specify an adapter (see also next example)
+        mAdapter = new PlayerAdapter(players, this);
+        mRecyclerView.setAdapter(mAdapter);
+
+        playerRef.addChildEventListener(new ChildEventListener() {
+            @Override
+            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+                Player player = dataSnapshot.getValue(Player.class);
+                players.add(player);
+
+                mAdapter.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+
+            }
+
+            @Override
+            public void onChildRemoved(DataSnapshot dataSnapshot) {
+
+            }
+
+            @Override
+            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
+
+
+
+
+
 
         mAuth = FirebaseAuth.getInstance();
         mAuthListener = new FirebaseAuth.AuthStateListener() {
@@ -53,15 +120,15 @@ public class MainActivity extends AppCompatActivity {
             }
         };
 
-        ListView lv = (ListView) findViewById(R.id.list_view_player);
-        ArrayList<String> arrayPlayers = new ArrayList<>();
-        arrayPlayers.addAll(Arrays.asList(getResources().getStringArray(R.array.players)));
-
-        adapter = new ArrayAdapter<>(
-                MainActivity.this,
-                android.R.layout.simple_list_item_1,
-                arrayPlayers);
-        lv.setAdapter(adapter);
+//        ListView lv = (ListView) findViewById(R.id.list_view_player);
+//        ArrayList<String> arrayPlayers = new ArrayList<>();
+//        arrayPlayers.addAll(Arrays.asList(getResources().getStringArray(R.array.players)));
+//
+//        adapter = new ArrayAdapter<>(
+//                MainActivity.this,
+//                android.R.layout.simple_list_item_1,
+//                arrayPlayers);
+//        lv.setAdapter(adapter);
 
         Spinner levels = (Spinner) findViewById(R.id.levels_main_spinner);
         // Create an ArrayAdapter using the string array and a default spinner layout
@@ -79,6 +146,7 @@ public class MainActivity extends AppCompatActivity {
 //                String sSelected=parent.getItemAtPosition(position).toString();
 //                Toast.makeText(this,sSelected,Toast.LENGTH_SHORT).show();
                 Toast.makeText(getBaseContext(),parent.getItemIdAtPosition(position)+ " selected", Toast.LENGTH_LONG).show();
+
             }
 
             @Override

@@ -40,10 +40,12 @@
 
         </LinearLayout>
 
-        <ListView
-            android:id="@+id/list_view_player"
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/roster_recycler_view"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"></ListView>
+            android:layout_height="match_parent"
+            android:scrollbars="vertical" />
+
     </LinearLayout>
 
     <android.support.design.widget.CoordinatorLayout
