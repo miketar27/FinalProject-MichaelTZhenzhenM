@@ -11,9 +11,14 @@ public class Player extends Person {
     private String jerseyNumber;
     private String gender;
     private String groupLevel;
+    private String fileName;
+    private String uniqueParent1ID;
+    private String uniqueParent2ID;
+
 
     public Player(String firstName, String lastName, String emailAddress, String jerseyNumber,
-                  String birthMonth, String birthDay, String birthYear, String gender, String groupLevel) {
+                  String birthMonth, String birthDay, String birthYear, String gender, String groupLevel,
+                  String fileName, String uniqueParent1ID, String uniqueParent2ID) {
         super(firstName, lastName, emailAddress);
         this.jerseyNumber = jerseyNumber;
         this.gender = gender;
@@ -21,8 +26,34 @@ public class Player extends Person {
         this.birthMonth = birthMonth;
         this.birthDay = birthDay;
         this.birthYear = birthYear;
+        this.fileName = fileName;
+        this.uniqueParent1ID = uniqueParent1ID;
+        this.uniqueParent2ID = uniqueParent2ID;
     }
 
+    public String getBirthMonth() {
+        return birthMonth;
+    }
+
+    public void setBirthMonth(String birthMonth) {
+        this.birthMonth = birthMonth;
+    }
+
+    public String getBirthDay() {
+        return birthDay;
+    }
+
+    public void setBirthDay(String birthDay) {
+        this.birthDay = birthDay;
+    }
+
+    public String getBirthYear() {
+        return birthYear;
+    }
+
+    public void setBirthYear(String birthYear) {
+        this.birthYear = birthYear;
+    }
 
     public String getJerseyNumber() {
         return jerseyNumber;
@@ -48,28 +79,27 @@ public class Player extends Person {
         this.groupLevel = groupLevel;
     }
 
-
-    public String getBirthMonth() {
-        return birthMonth;
+    public String getFileName() {
+        return fileName;
     }
 
-    public void setBirthMonth(String birthMonth) {
-        this.birthMonth = birthMonth;
+    public void setFileName(String fileName) {
+        this.fileName = fileName;
     }
 
-    public String getBirthDay() {
-        return birthDay;
+    public String getUniqueParent1ID() {
+        return uniqueParent1ID;
     }
 
-    public void setBirthDay(String birthDay) {
-        this.birthDay = birthDay;
+    public void setUniqueParent1ID(String uniqueParent1ID) {
+        this.uniqueParent1ID = uniqueParent1ID;
     }
 
-    public String getBirthYear() {
-        return birthYear;
+    public String getUniqueParent2ID() {
+        return uniqueParent2ID;
     }
 
-    public void setBirthYear(String birthYear) {
-        this.birthYear = birthYear;
+    public void setUniqueParent2ID(String uniqueParent2ID) {
+        this.uniqueParent2ID = uniqueParent2ID;
     }
 }

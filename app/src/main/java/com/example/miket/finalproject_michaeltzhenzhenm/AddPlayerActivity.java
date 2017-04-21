@@ -19,7 +19,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.Spinner;
 import android.widget.Toast;
@@ -46,6 +45,7 @@ public class AddPlayerActivity extends AppCompatActivity {
     String gender = "N/A";
     String parent1Title = "N/A";
     String parent2Title = "N/A";
+    FirebaseUser currentUser;
     FirebaseDatabase database;
     DatabaseReference playerRef;
     DatabaseReference parent1Ref;
@@ -53,7 +53,6 @@ public class AddPlayerActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
     private String TAG = "AddPlayerActivity";
-    private ImageView imageView;
     private File photoFile;
     private StorageReference mStorageRef;
     private Uri fileToUpload;
@@ -78,7 +77,6 @@ public class AddPlayerActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_player);
 
-        imageView = (ImageView) findViewById(R.id.image);
         mStorageRef = FirebaseStorage.getInstance().getReference();
 
         database = FirebaseDatabase.getInstance();
@@ -90,10 +88,11 @@ public class AddPlayerActivity extends AppCompatActivity {
         mAuthListener = new FirebaseAuth.AuthStateListener() {
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
-                FirebaseUser user = firebaseAuth.getCurrentUser();
-                if (user != null) {
+                currentUser = firebaseAuth.getCurrentUser();
+                if (currentUser != null) {
                     // User is signed in
-                    Log.d(TAG, "onAuthStateChanged:signed_in:" + user.getUid());
+                    Log.d(TAG, "onAuthStateChanged:signed_in:" + currentUser.getUid());
+
                 } else {
                     // User is signed out
                     Log.d(TAG, "onAuthStateChanged:signed_out");
@@ -149,6 +148,41 @@ public class AddPlayerActivity extends AppCompatActivity {
     }
 
     public void save() {
+        EditText eParent1FirstName = (EditText) findViewById(R.id.parent1_first_name);
+        EditText eParent1LastName = (EditText) findViewById(R.id.parent1_last_name);
+        EditText eParent1Email = (EditText) findViewById(R.id.parent1_email);
+        EditText eParent1PhoneNum = (EditText) findViewById(R.id.parent1_phone);
+
+        String parent1FirstName = eParent1FirstName.getText().toString();
+        String parent1LastName = eParent1LastName.getText().toString();
+        String parent1Email = eParent1Email.getText().toString();
+        String parent1PhoneNum = eParent1PhoneNum.getText().toString();
+
+        DatabaseReference uniqueParent1 = parent1Ref.push();
+        String parent1Uid = uniqueParent1.getKey();
+
+        Parent parent1 = new Parent(parent1Title, parent1FirstName, parent1LastName, parent1Email, parent1PhoneNum);
+        uniqueParent1.setValue(parent1);
+
+
+        EditText eParent2FirstName = (EditText) findViewById(R.id.parent2_first_name);
+        EditText eParent2LastName = (EditText) findViewById(R.id.parent2_last_name);
+        EditText eParent2Email = (EditText) findViewById(R.id.parent2_email);
+        EditText eParent2PhoneNum = (EditText) findViewById(R.id.parent2_phone);
+
+        String parent2FirstName = eParent2FirstName.getText().toString();
+        String parent2LastName = eParent2LastName.getText().toString();
+        String parent2Email = eParent2Email.getText().toString();
+        String parent2PhoneNum = eParent2PhoneNum.getText().toString();
+
+        DatabaseReference uniqueParent2 = parent2Ref.push();
+        String parent2Uid = uniqueParent2.getKey();
+        Parent parent2 = new Parent(parent2Title, parent2FirstName, parent2LastName, parent2Email, parent2PhoneNum);
+        uniqueParent2.setValue(parent2);
+
+
+
+
         EditText ePlayerFirstName = (EditText) findViewById(R.id.player_first_name);
         EditText ePlayerLastName = (EditText) findViewById(R.id.player_last_name);
         EditText ePlayerEmail = (EditText) findViewById(R.id.player_email);
@@ -167,8 +201,8 @@ public class AddPlayerActivity extends AppCompatActivity {
         String playerBdayYear = ePlayerBdayYear.getSelectedItem().toString();
         String groupLevelAdd = eGroupLevelAdd.getSelectedItem().toString();
 
-        StorageReference uploadRef = mStorageRef.child("images/upload.jpg");
-
+        String filename = fileToUpload.getLastPathSegment();
+        StorageReference uploadRef = mStorageRef.child("images").child(filename);
         uploadRef.putFile(fileToUpload)
                 .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                     @Override
@@ -184,40 +218,21 @@ public class AddPlayerActivity extends AppCompatActivity {
                     }
                 });
 
-        Toast.makeText(AddPlayerActivity.this, "Uploaded Successfully!", Toast.LENGTH_SHORT).show();
 
-        Player player = new Player(playerFirstName, playerLastName, playerEmail, playerJerseyNum,
-                playerBdayMonth, playerBdayDay, playerBdayYear, gender, groupLevelAdd);
-
+        final Player player = new Player(playerFirstName, playerLastName, playerEmail, playerJerseyNum,
+                playerBdayMonth, playerBdayDay, playerBdayYear, gender, groupLevelAdd, filename, parent1Uid, parent2Uid);
         playerRef.push().setValue(player);
 
+//        uniqueParent1.setValue(player);
+        Log.d("playeruid: ", parent1Uid);
 
-        EditText eParent1FirstName = (EditText) findViewById(R.id.parent1_first_name);
-        EditText eParent1LastName = (EditText) findViewById(R.id.parent1_last_name);
-        EditText eParent1Email = (EditText) findViewById(R.id.parent1_email);
-        EditText eParent1PhoneNum = (EditText) findViewById(R.id.parent1_phone);
 
-        String parent1FirstName = eParent1FirstName.getText().toString();
-        String parent1LastName = eParent1LastName.getText().toString();
-        String parent1Email = eParent1Email.getText().toString();
-        String parent1PhoneNum = eParent1PhoneNum.getText().toString();
+//        uniqueParent2.setValue(player);
+        Log.d("playeruid: ", parent2Uid);
 
-        Parent parent1 = new Parent(parent1Title, parent1FirstName, parent1LastName, parent1Email, parent1PhoneNum);
-        parent1Ref.push().setValue(parent1);
 
-        EditText eParent2FirstName = (EditText) findViewById(R.id.parent2_first_name);
-        EditText eParent2LastName = (EditText) findViewById(R.id.parent2_last_name);
-        EditText eParent2Email = (EditText) findViewById(R.id.parent2_email);
-        EditText eParent2PhoneNum = (EditText) findViewById(R.id.parent2_phone);
+        Toast.makeText(AddPlayerActivity.this, playerFirstName + " " + playerLastName + "Profile Added Successfully!", Toast.LENGTH_SHORT).show();
 
-        String parent2FirstName = eParent2FirstName.getText().toString();
-        String parent2LastName = eParent2LastName.getText().toString();
-        String parent2Email = eParent2Email.getText().toString();
-        String parent2PhoneNum = eParent2PhoneNum.getText().toString();
-
-        Parent parent2 = new Parent(parent2Title, parent2FirstName, parent2LastName, parent2Email, parent2PhoneNum);
-
-        parent2Ref.push().setValue(parent2);
     }
 
     public void onGenderClick(View view) {
