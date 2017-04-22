@@ -1,5 +1,6 @@
 package com.example.miket.finalproject_michaeltzhenzhenm;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -13,6 +14,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.TextView;
 
 public class ProfileActivity extends AppCompatActivity {
 
@@ -36,14 +38,13 @@ public class ProfileActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
 
-//        TextView playerFirstName= (TextView) findViewById(R.id.player_first_name);
+        TextView playerFirstName = (TextView) findViewById(R.id.player_profile_first_name);
+        TextView playerLastName = (TextView) findViewById(R.id.player_profile_last_name);
 
-
-//        Intent intent = getIntent();
-//        Player player= (Player) intent.getSerializableExtra("A Player");
-//        playerFirstName.setText(player.getFirstName());
-
-
+        Intent intent = getIntent();
+        Player player = (Player) intent.getSerializableExtra("A Player");
+        playerFirstName.setText(player.getFirstName());
+        playerLastName.setText(player.getLastName());
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);

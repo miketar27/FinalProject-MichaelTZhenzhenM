@@ -18,10 +18,24 @@ public class ProfileTab1BasicProfile extends Fragment {
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.p_tab1_basic_profile, container, false);
 
-        TextView playerFirstName = (TextView) rootView.findViewById(R.id.player_first_name);
+        TextView playerJerseyNumber = (TextView) rootView.findViewById(R.id.player_profile_jeresy_num);
+        TextView playerBirthDate = (TextView) rootView.findViewById(R.id.player_profile_birth_date);
+        TextView playerGroupLevel = (TextView) rootView.findViewById(R.id.player_profile_group_lvl);
+        TextView playerGender = (TextView) rootView.findViewById(R.id.player_profile_gender);
+        TextView playerParentsNames = (TextView) rootView.findViewById(R.id.player_profile_parents_names);
+        TextView playerEmail = (TextView) rootView.findViewById(R.id.player_profile_email);
+
         Intent intent = getActivity().getIntent();
+
         Player player = (Player) intent.getSerializableExtra("A Player");
-        playerFirstName.setText(player.getFirstName());
+//        Parent parent1 = (Parent) intent.getSerializableExtra("A Player");
+
+        playerJerseyNumber.setText(player.getJerseyNumber());
+        playerBirthDate.setText(player.getBirthMonth() + " " + player.getBirthDay() + ", " + player.getBirthYear());
+        playerGroupLevel.setText(player.getGroupLevel());
+        playerGender.setText(player.getGender());
+//        playerParentsNames.setText(parent1.getFirstName());
+        playerEmail.setText(player.getEmailAddress());
         return rootView;
 
 

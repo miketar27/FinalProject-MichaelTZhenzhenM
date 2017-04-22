@@ -10,8 +10,8 @@ public class Player extends Person implements Serializable {
     private String birthMonth;
     private String birthDay;
     private String birthYear;
-    private String jerseyNumber;
-    private String gender;
+    private String jerseyNumber = "N/A";
+    private String gender = "N/A";
     private String groupLevel;
     private String fileName;
     private String uniqueParent1ID;

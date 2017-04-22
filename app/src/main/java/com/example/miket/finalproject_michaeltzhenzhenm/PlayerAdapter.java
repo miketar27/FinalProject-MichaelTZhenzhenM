@@ -28,21 +28,12 @@ public class PlayerAdapter extends RecyclerView.Adapter<PlayerAdapter.ViewHolder
 
     // Create new views (invoked by the layout manager)
     @Override
-    public PlayerAdapter.ViewHolder onCreateViewHolder(ViewGroup parent,
-                                                       int viewType) {
+    public PlayerAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
 
         View v = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.list_item, parent, false);
         ViewHolder viewHolder = new ViewHolder(v);
         return viewHolder;
-
-
-//        // create a new view
-//        LinearLayout v = (LinearLayout) LayoutInflater.from(parent.getContext())
-//                .inflate(R.layout.list_item, parent, false);
-//        // set the view's size, margins, paddings and layout parameters
-//        ViewHolder vh = new ViewHolder(v);
-//        return vh;
     }
 
     // Replace the contents of a view (invoked by the layout manager)
@@ -69,6 +60,7 @@ public class PlayerAdapter extends RecyclerView.Adapter<PlayerAdapter.ViewHolder
     public int getItemCount() {
         return mDataset.size();
     }
+
 
     public void setFilter(ArrayList<Player> newList) {
         mDataset = new ArrayList<>();
