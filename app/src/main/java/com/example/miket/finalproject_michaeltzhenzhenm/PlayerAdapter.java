@@ -1,12 +1,12 @@
 package com.example.miket.finalproject_michaeltzhenzhenm;
 
 import android.content.Context;
+import android.support.design.widget.Snackbar;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -29,12 +29,19 @@ public class PlayerAdapter extends RecyclerView.Adapter<PlayerAdapter.ViewHolder
     @Override
     public PlayerAdapter.ViewHolder onCreateViewHolder(ViewGroup parent,
                                                        int viewType) {
-        // create a new view
-        LinearLayout v = (LinearLayout) LayoutInflater.from(parent.getContext())
+
+        View v = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.list_item, parent, false);
-        // set the view's size, margins, paddings and layout parameters
-        ViewHolder vh = new ViewHolder(v);
-        return vh;
+        ViewHolder viewHolder = new ViewHolder(v);
+        return viewHolder;
+
+
+//        // create a new view
+//        LinearLayout v = (LinearLayout) LayoutInflater.from(parent.getContext())
+//                .inflate(R.layout.list_item, parent, false);
+//        // set the view's size, margins, paddings and layout parameters
+//        ViewHolder vh = new ViewHolder(v);
+//        return vh;
     }
 
     // Replace the contents of a view (invoked by the layout manager)
@@ -85,6 +92,14 @@ public class PlayerAdapter extends RecyclerView.Adapter<PlayerAdapter.ViewHolder
             mPlayerFirstName = (TextView) v.findViewById(R.id.roster_player_first_name);
             mPlayerLastName = (TextView) v.findViewById(R.id.roster_player_last_name);
             mJerseyNumber = (TextView) v.findViewById(R.id.roster_player_jersey_number);
+            v.setOnClickListener(new View.OnClickListener() {
+                int position = getAdapterPosition();
+
+                @Override
+                public void onClick(View v) {
+                    Snackbar.make(v, "Click detected" + position, Snackbar.LENGTH_LONG).setAction("Action", null).show();
+                }
+            });
         }
     }
 
