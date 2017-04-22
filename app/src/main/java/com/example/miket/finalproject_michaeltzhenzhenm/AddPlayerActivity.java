@@ -389,13 +389,13 @@ public class AddPlayerActivity extends AppCompatActivity {
         public Fragment getItem(int position) {
             switch (position) {
                 case 0:
-                    Tab1BasicInfo tab1 = new Tab1BasicInfo();
+                    AddPlayerTab1BasicInfo tab1 = new AddPlayerTab1BasicInfo();
                     return tab1;
                 case 1:
-                    Tab2ParentInfo tab2 = new Tab2ParentInfo();
+                    AddPlayerTab2ParentInfo tab2 = new AddPlayerTab2ParentInfo();
                     return tab2;
                 case 2:
-                    Tab3MiscInfo tab3 = new Tab3MiscInfo();
+                    AddPlayerTab3MiscInfo tab3 = new AddPlayerTab3MiscInfo();
                     return tab3;
             }
             return null;
