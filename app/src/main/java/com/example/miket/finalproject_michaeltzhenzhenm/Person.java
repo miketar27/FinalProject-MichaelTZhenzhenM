@@ -1,10 +1,12 @@
 package com.example.miket.finalproject_michaeltzhenzhenm;
 
+import java.io.Serializable;
+
 /**
  * Created by miket on 4/16/2017.
  */
 
-public class Person {
+public class Person implements Serializable {
     protected String firstName;
     protected String lastName;
     protected String emailAddress;

@@ -1,7 +1,7 @@
 package com.example.miket.finalproject_michaeltzhenzhenm;
 
 import android.content.Context;
-import android.support.design.widget.Snackbar;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -53,14 +53,14 @@ public class PlayerAdapter extends RecyclerView.Adapter<PlayerAdapter.ViewHolder
         holder.mPlayerFirstName.setText(mDataset.get(position).getFirstName());
         holder.mPlayerLastName.setText(mDataset.get(position).getLastName());
         holder.mJerseyNumber.setText(mDataset.get(position).getJerseyNumber());
-//        holder.mPlayerFirstName.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent intent= new Intent(mContext, DetailActivity.class);
-//                intent.putExtra("A Blogpost", mDataset.get(holder.getAdapterPosition()));
-//                mContext.startActivity(intent);
-//            }
-//        });
+        holder.mPlayerFirstName.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(mContext, ProfileActivity.class);
+                intent.putExtra("A Player", mDataset.get(holder.getAdapterPosition()));
+                mContext.startActivity(intent);
+            }
+        });
     }
 
     // Return the size of your dataset (invoked by the layout manager)
@@ -92,14 +92,16 @@ public class PlayerAdapter extends RecyclerView.Adapter<PlayerAdapter.ViewHolder
             mPlayerFirstName = (TextView) v.findViewById(R.id.roster_player_first_name);
             mPlayerLastName = (TextView) v.findViewById(R.id.roster_player_last_name);
             mJerseyNumber = (TextView) v.findViewById(R.id.roster_player_jersey_number);
-            v.setOnClickListener(new View.OnClickListener() {
-                int position = getAdapterPosition();
+//            v.setOnClickListener(new View.OnClickListener() {
+//                int position = getAdapterPosition();
 
-                @Override
-                public void onClick(View v) {
-                    Snackbar.make(v, "Click detected" + position, Snackbar.LENGTH_LONG).setAction("Action", null).show();
-                }
-            });
+//                @Override
+//                public void onClick(View v) {
+//                    Intent intent= new Intent(mContext, DetailActivity.class);
+//                    intent.putExtra("A Blogpost", mDataset.get(holder.getAdapterPosition()));
+//                    mContext.startActivity(intent);
+//                }
+//            });
         }
     }
 
