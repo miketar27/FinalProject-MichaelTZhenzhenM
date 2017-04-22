@@ -2,6 +2,7 @@ package com.example.miket.finalproject_michaeltzhenzhenm;
 
 import android.content.Context;
 import android.content.Intent;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -53,7 +54,7 @@ public class PlayerAdapter extends RecyclerView.Adapter<PlayerAdapter.ViewHolder
         holder.mPlayerFirstName.setText(mDataset.get(position).getFirstName());
         holder.mPlayerLastName.setText(mDataset.get(position).getLastName());
         holder.mJerseyNumber.setText(mDataset.get(position).getJerseyNumber());
-        holder.mPlayerFirstName.setOnClickListener(new View.OnClickListener() {
+        holder.mCardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(mContext, ProfileActivity.class);
@@ -80,30 +81,19 @@ public class PlayerAdapter extends RecyclerView.Adapter<PlayerAdapter.ViewHolder
     // you provide access to all the views for a data item in a view holder
     public static class ViewHolder extends RecyclerView.ViewHolder {
         // each data item is just a string in this case
+        public CardView mCardView;
         public ImageView mPlayerImage;
         public TextView mPlayerFirstName;
         public TextView mPlayerLastName;
         public TextView mJerseyNumber;
 
-
         public ViewHolder(View v) {
             super(v);
+            mCardView = (CardView) v.findViewById(R.id.card_view);
             mPlayerImage = (ImageView) v.findViewById(R.id.roster_player_profile_pic);
             mPlayerFirstName = (TextView) v.findViewById(R.id.roster_player_first_name);
             mPlayerLastName = (TextView) v.findViewById(R.id.roster_player_last_name);
             mJerseyNumber = (TextView) v.findViewById(R.id.roster_player_jersey_number);
-//            v.setOnClickListener(new View.OnClickListener() {
-//                int position = getAdapterPosition();
-
-//                @Override
-//                public void onClick(View v) {
-//                    Intent intent= new Intent(mContext, DetailActivity.class);
-//                    intent.putExtra("A Blogpost", mDataset.get(holder.getAdapterPosition()));
-//                    mContext.startActivity(intent);
-//                }
-//            });
         }
     }
-
-
 }
