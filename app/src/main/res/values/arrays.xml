@@ -78,20 +78,4 @@
         <item>1999</item>
         <item>1998</item>
     </string-array>
-
-    <string-array name="players">
-        <item>Mike</item>
-        <item>Sean</item>
-        <item>Jamie</item>
-        <item>Andy</item>
-        <item>Yang</item>
-        <item>Cathy</item>
-        <item>Boen</item>
-        <item>Dasheng</item>
-        <item>Nigel</item>
-        <item>Iris</item>
-        <item>Adriana</item>
-        <item>Ginger</item>
-        <item>Rae</item>
-    </string-array>
 </resources>

@@ -148,9 +148,7 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
             }
         });
 
-
         fabAdd = (FloatingActionButton) findViewById(R.id.fab_add);
-
         fabAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

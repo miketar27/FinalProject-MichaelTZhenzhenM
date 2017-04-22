@@ -11,7 +11,7 @@ import android.widget.Spinner;
 /**
  * Created by miket on 4/15/2017.
  */
-public class Tab1BasicInfo extends Fragment {
+public class AddPlayerTab1BasicInfo extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

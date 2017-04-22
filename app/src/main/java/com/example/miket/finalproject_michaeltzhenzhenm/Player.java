@@ -1,10 +1,12 @@
 package com.example.miket.finalproject_michaeltzhenzhenm;
 
+import java.io.Serializable;
+
 /**
  * Created by miket on 4/16/2017.
  */
 
-public class Player extends Person {
+public class Player extends Person implements Serializable {
     private String birthMonth;
     private String birthDay;
     private String birthYear;

@@ -10,12 +10,12 @@ import android.view.ViewGroup;
  * Created by miket on 4/15/2017.
  */
 
-public class Tab3MiscInfo extends Fragment {
+public class AddPlayerTab2ParentInfo extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.tab3_misc_info, container, false);
+        View rootView = inflater.inflate(R.layout.tab2_parent_info, container, false);
         return rootView;
     }
 }
