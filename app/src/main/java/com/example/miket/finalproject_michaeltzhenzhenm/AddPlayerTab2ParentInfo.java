@@ -15,7 +15,7 @@ public class AddPlayerTab2ParentInfo extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.tab2_parent_info, container, false);
+        View rootView = inflater.inflate(R.layout.ap_tab2_parent_info, container, false);
         return rootView;
     }
 }

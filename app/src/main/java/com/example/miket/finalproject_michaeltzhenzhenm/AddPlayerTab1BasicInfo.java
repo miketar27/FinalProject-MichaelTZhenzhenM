@@ -16,7 +16,7 @@ public class AddPlayerTab1BasicInfo extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.tab1_basic_info, container, false);
+        View rootView = inflater.inflate(R.layout.ap_tab1_basic_info, container, false);
 
         Spinner monthSpinner = (Spinner) rootView.findViewById(R.id.player_bday_months_spinner);
         // Create an ArrayAdapter using the string array and a default spinner layout
