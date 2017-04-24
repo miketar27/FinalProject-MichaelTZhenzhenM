@@ -47,6 +47,7 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        //test
 
         database = FirebaseDatabase.getInstance();
         playerRef = database.getReference("players");
