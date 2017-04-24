@@ -138,6 +138,9 @@ public class AddPlayerActivity extends AppCompatActivity {
             case R.id.action_settings:
 //                ADD STUFF!!!!!!!!!!!!!!!!!!!!!!!!
                 return true;
+            case R.id.logout:
+                mAuth.signOut();
+                return true;
             case R.id.add_person:
                 save();
                 return true;
@@ -150,6 +153,11 @@ public class AddPlayerActivity extends AppCompatActivity {
     }
 
     public void save() {
+        RadioButton eParent1Mr = (RadioButton) findViewById(R.id.parent1_title_mr);
+        RadioButton eParent1Mrs = (RadioButton) findViewById(R.id.parent1_title_mrs);
+        RadioButton eParent1Ms = (RadioButton) findViewById(R.id.parent1_title_ms);
+        RadioButton eParent1Miss = (RadioButton) findViewById(R.id.parent1_title_miss);
+
         EditText eParent1FirstName = (EditText) findViewById(R.id.parent1_first_name);
         EditText eParent1LastName = (EditText) findViewById(R.id.parent1_last_name);
         EditText eParent1Email = (EditText) findViewById(R.id.parent1_email);
@@ -167,6 +175,11 @@ public class AddPlayerActivity extends AppCompatActivity {
         uniqueParent1.setValue(parent1);
 
 
+        RadioButton eParent2Mr = (RadioButton) findViewById(R.id.parent2_title_mr);
+        RadioButton eParent2Mrs = (RadioButton) findViewById(R.id.parent2_title_mrs);
+        RadioButton eParent2Ms = (RadioButton) findViewById(R.id.parent2_title_ms);
+        RadioButton eParent2Miss = (RadioButton) findViewById(R.id.parent2_title_miss);
+
         EditText eParent2FirstName = (EditText) findViewById(R.id.parent2_first_name);
         EditText eParent2LastName = (EditText) findViewById(R.id.parent2_last_name);
         EditText eParent2Email = (EditText) findViewById(R.id.parent2_email);
@@ -179,6 +192,7 @@ public class AddPlayerActivity extends AppCompatActivity {
 
         DatabaseReference uniqueParent2 = parent2Ref.push();
         String parent2Uid = uniqueParent2.getKey();
+
         Parent parent2 = new Parent(parent2Title, parent2FirstName, parent2LastName, parent2Email, parent2PhoneNum);
         uniqueParent2.setValue(parent2);
 
@@ -190,6 +204,8 @@ public class AddPlayerActivity extends AppCompatActivity {
         Spinner ePlayerBdayMonth = (Spinner) findViewById(R.id.player_bday_months_spinner);
         Spinner ePlayerBdayDay = (Spinner) findViewById(R.id.player_bday_day_spinner);
         Spinner ePlayerBdayYear = (Spinner) findViewById(R.id.player_bday_year_spinner);
+        RadioButton eMaleButton = (RadioButton) findViewById(R.id.male_radio);
+        RadioButton eFemaleButton = (RadioButton) findViewById(R.id.female_radio);
         Spinner eGroupLevelAdd = (Spinner) findViewById(R.id.levels_add_spinner);
 
         String playerFirstName = ePlayerFirstName.getText().toString();
@@ -226,15 +242,26 @@ public class AddPlayerActivity extends AppCompatActivity {
 
         Toast.makeText(AddPlayerActivity.this, playerFirstName + " " + playerLastName + "'s Profile Added Successfully!", Toast.LENGTH_SHORT).show();
 
+        eMaleButton.setChecked(false);
+        eFemaleButton.setChecked(false);
+
         eParent1FirstName.setText(null);
         eParent1LastName.setText(null);
         eParent1Email.setText(null);
         eParent1PhoneNum.setText(null);
+        eParent1Mr.setChecked(false);
+        eParent1Mrs.setChecked(false);
+        eParent1Ms.setChecked(false);
+        eParent1Miss.setChecked(false);
 
         eParent2FirstName.setText(null);
         eParent2LastName.setText(null);
         eParent2Email.setText(null);
         eParent2PhoneNum.setText(null);
+        eParent2Mr.setChecked(false);
+        eParent2Mrs.setChecked(false);
+        eParent2Ms.setChecked(false);
+        eParent2Miss.setChecked(false);
 
         ePlayerFirstName.setText(null);
         ePlayerLastName.setText(null);
@@ -244,6 +271,8 @@ public class AddPlayerActivity extends AppCompatActivity {
         ePlayerBdayDay.setSelection(0);
         ePlayerBdayYear.setSelection(0);
         eGroupLevelAdd.setSelection(0);
+        eMaleButton.setChecked(false);
+        eFemaleButton.setChecked(false);
     }
 
     public void onGenderClick(View view) {
@@ -259,6 +288,7 @@ public class AddPlayerActivity extends AppCompatActivity {
                     gender = "Female";
                 }
         }
+
     }
 
     public void onTitleClickParent1(View view) {

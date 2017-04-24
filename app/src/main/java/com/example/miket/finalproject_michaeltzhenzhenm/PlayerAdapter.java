@@ -41,7 +41,7 @@ public class PlayerAdapter extends RecyclerView.Adapter<PlayerAdapter.ViewHolder
     public void onBindViewHolder(final ViewHolder holder, final int position) {
         // - get element from your dataset at this position
         // - replace the contents of the view with that element
-//        holder.mTextView.setText(mDataset[position]);
+        // - holder.mTextView.setText(mDataset[position]);
         holder.mPlayerFirstName.setText(mDataset.get(position).getFirstName());
         holder.mPlayerLastName.setText(mDataset.get(position).getLastName());
         holder.mJerseyNumber.setText(mDataset.get(position).getJerseyNumber());

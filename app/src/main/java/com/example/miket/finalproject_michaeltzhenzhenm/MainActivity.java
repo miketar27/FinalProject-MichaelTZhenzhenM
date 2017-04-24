@@ -115,16 +115,6 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
             }
         };
 
-//        ListView lv = (ListView) findViewById(R.id.list_view_player);
-//        ArrayList<String> arrayPlayers = new ArrayList<>();
-//        arrayPlayers.addAll(Arrays.asList(getResources().getStringArray(R.array.players)));
-//
-//        adapter = new ArrayAdapter<>(
-//                MainActivity.this,
-//                android.R.layout.simple_list_item_1,
-//                arrayPlayers);
-//        lv.setAdapter(adapter)
-
         Spinner levels = (Spinner) findViewById(R.id.levels_main_spinner);
         // Create an ArrayAdapter using the string array and a default spinner layout
         ArrayAdapter<CharSequence> levelsAdapter = ArrayAdapter.createFromResource(
@@ -140,13 +130,13 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 
                 Toast.makeText(getBaseContext(), parent.getItemIdAtPosition(position) + " selected", Toast.LENGTH_LONG).show();
-
             }
 
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
             }
         });
+
 
         fabAdd = (FloatingActionButton) findViewById(R.id.fab_add);
         fabAdd.setOnClickListener(new View.OnClickListener() {
@@ -175,26 +165,11 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.menu_unselected, menu);
+        inflater.inflate(R.menu.menu_main_unselected, menu);
 
         MenuItem item = menu.findItem(R.id.menuSearch);
         SearchView searchView = (SearchView) MenuItemCompat.getActionView(item);
         searchView.setOnQueryTextListener(this);
-//        return true;
-//        SearchView searchViewView = (SearchView) item.getActionView();
-
-//        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-//            @Override
-//            public boolean onQueryTextSubmit(String query) {
-//                return false;
-//            }
-//
-//            @Override
-//            public boolean onQueryTextChange(String newText) {
-//                adapter.getFilter().filter(newText);
-//                return false;
-//            }
-//        });
         return super.onCreateOptionsMenu(menu);
     }
 
@@ -205,7 +180,9 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
                 Intent intent = new Intent(this, AddPlayerActivity.class);
                 startActivity(intent);
                 return true;
-
+            case R.id.logout:
+                mAuth.signOut();
+                return true;
             default:
                 // If we got here, the user's action was not recognized.
                 // Invoke the superclass to handle it.

@@ -2,6 +2,7 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
+
     <item
         android:id="@+id/menuSearch"
         android:icon="@android:drawable/ic_menu_search"
@@ -9,5 +10,17 @@
         app:actionViewClass="android.widget.SearchView"
         app:showAsAction="always">
     </item>
+
+    <item
+        android:id="@+id/logout"
+        android:orderInCategory="1"
+        android:title="Log Out"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/action_settings"
+        android:orderInCategory="2"
+        android:title="@string/action_settings"
+        app:showAsAction="never" />
 
 </menu>
