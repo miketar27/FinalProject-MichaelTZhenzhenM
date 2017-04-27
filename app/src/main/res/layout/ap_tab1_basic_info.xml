@@ -18,13 +18,13 @@
             android:id="@+id/player_first_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="First Name" />
+            android:hint="@string/first_name" />
 
         <EditText
             android:id="@+id/player_last_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Last Name" />
+            android:hint="@string/last_name" />
 
         <EditText
             android:id="@+id/player_email"
@@ -37,7 +37,7 @@
             android:id="@+id/player_jersey_number"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:hint="Jersey Number"
+            android:hint="@string/jersey_number"
             android:inputType="number" />
 
         <TextView
@@ -79,7 +79,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:paddingRight="20dp"
-                android:text="Gender:" />
+                android:text="@string/gender" />
 
             <RadioGroup
                 android:layout_width="wrap_content"
@@ -96,7 +96,7 @@
                     android:layout_weight="1"
                     android:onClick="onGenderClick"
                     android:paddingRight="20dp"
-                    android:text="Male" />
+                    android:text="@string/male" />
 
                 <RadioButton
                     android:id="@+id/female_radio"
@@ -105,7 +105,7 @@
                     android:layout_gravity="center"
                     android:layout_weight="1"
                     android:onClick="onGenderClick"
-                    android:text="Female" />
+                    android:text="@string/female" />
 
             </RadioGroup>
 
@@ -115,7 +115,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingTop="15dp"
-            android:text="Group Level" />
+            android:text="@string/group_level" />
 
         <Spinner
             android:id="@+id/levels_add_spinner"
@@ -125,7 +125,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Upload a profile photo" />
+            android:text="@string/profile_photo" />
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -143,7 +143,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginRight="50dp"
-                android:text="Camera" />
+                android:text="@string/camera" />
 
             <ImageButton
                 android:layout_width="wrap_content"
@@ -155,7 +155,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="Gallery" />
+                android:text="@string/gallery" />
         </LinearLayout>
 
 

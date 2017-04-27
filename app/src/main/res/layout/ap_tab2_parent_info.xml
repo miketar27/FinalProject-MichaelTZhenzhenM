@@ -17,7 +17,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="First Parent:"
+            android:text="@string/first_parent"
             android:textStyle="bold" />
 
         <RadioGroup
@@ -31,7 +31,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="15dp"
                 android:onClick="onTitleClickParent1"
-                android:text="Mr." />
+                android:text="@string/mr" />
 
             <RadioButton
                 android:id="@+id/parent1_title_mrs"
@@ -39,7 +39,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="15dp"
                 android:onClick="onTitleClickParent1"
-                android:text="Mrs." />
+                android:text="@string/mrs" />
 
             <RadioButton
                 android:id="@+id/parent1_title_ms"
@@ -47,7 +47,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="15dp"
                 android:onClick="onTitleClickParent1"
-                android:text="Ms." />
+                android:text="@string/ms" />
 
             <RadioButton
                 android:id="@+id/parent1_title_miss"
@@ -55,38 +55,38 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="15dp"
                 android:onClick="onTitleClickParent1"
-                android:text="Miss" />
+                android:text="@string/miss" />
         </RadioGroup>
 
         <EditText
             android:id="@+id/parent1_first_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="First Name" />
+            android:hint="@string/first_name" />
 
         <EditText
             android:id="@+id/parent1_last_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Last Name" />
+            android:hint="@string/last_name" />
 
         <EditText
             android:id="@+id/parent1_email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Email Address" />
+            android:hint="@string/email_address" />
 
         <EditText
             android:id="@+id/parent1_phone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Phone Number" />
+            android:hint="@string/phone_number" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingTop="15dp"
-            android:text="Second Parent:"
+            android:text="@string/second_parent"
             android:textStyle="bold" />
 
         <RadioGroup
@@ -100,7 +100,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="15dp"
                 android:onClick="onTitleClickParent2"
-                android:text="Mr." />
+                android:text="@string/mr" />
 
             <RadioButton
                 android:id="@+id/parent2_title_mrs"
@@ -108,7 +108,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="15dp"
                 android:onClick="onTitleClickParent2"
-                android:text="Mrs." />
+                android:text="@string/mrs" />
 
             <RadioButton
                 android:id="@+id/parent2_title_ms"
@@ -116,7 +116,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="15dp"
                 android:onClick="onTitleClickParent2"
-                android:text="Ms." />
+                android:text="@string/ms" />
 
             <RadioButton
                 android:id="@+id/parent2_title_miss"
@@ -124,32 +124,32 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="15dp"
                 android:onClick="onTitleClickParent2"
-                android:text="Miss" />
+                android:text="@string/miss" />
         </RadioGroup>
 
         <EditText
             android:id="@+id/parent2_first_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="First Name" />
+            android:hint="@string/first_name" />
 
         <EditText
             android:id="@+id/parent2_last_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Last Name" />
+            android:hint="@string/last_name" />
 
         <EditText
             android:id="@+id/parent2_email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Email Address" />
+            android:hint="@string/email_address" />
 
         <EditText
             android:id="@+id/parent2_phone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Phone Number" />
+            android:hint="@string/phone_number" />
     </LinearLayout>
 
 </ScrollView>

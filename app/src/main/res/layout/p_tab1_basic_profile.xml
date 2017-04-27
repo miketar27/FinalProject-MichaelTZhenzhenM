@@ -46,7 +46,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingRight="10dp"
-                android:text="Jersey Number:" />
+                android:text="@string/jersey_number" />
 
             <TextView
                 android:id="@+id/player_profile_jeresy_num"
@@ -63,7 +63,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingRight="10dp"
-                android:text="Birth Date" />
+                android:text="@string/birth_date" />
 
             <TextView
                 android:id="@+id/player_profile_birth_date"
@@ -80,7 +80,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingRight="10dp"
-                android:text="Group Level: " />
+                android:text="@string/group_level" />
 
             <TextView
                 android:id="@+id/player_profile_group_lvl"
@@ -97,7 +97,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingRight="10dp"
-                android:text="Gender:" />
+                android:text="@string/gender" />
 
             <TextView
                 android:id="@+id/player_profile_gender"
@@ -114,7 +114,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingRight="10dp"
-                android:text="Parent's Names:" />
+                android:text="@string/parent_names" />
 
             <TextView
                 android:id="@+id/player_profile_parents_names"
@@ -131,7 +131,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingRight="10dp"
-                android:text="Email Address" />
+                android:text="@string/email_address" />
 
             <TextView
                 android:id="@+id/player_profile_email"

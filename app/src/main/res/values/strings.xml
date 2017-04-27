@@ -6,4 +6,31 @@
     <string name="title_activity_profile">Profile</string>
     <string name="sign_in">Sign in</string>
     <string name="email_address">Email Address</string>
+    <string name="password">Password</string>
+    <string name="register">Register</string>
+    <string name="sign_in_using">Or sign in using</string>
+    <string name="facebook">Facebook</string>
+    <string name="google">Google</string>
+    <string name="group_level">Group Level:</string>
+    <string name="first_name">First Name</string>
+    <string name="last_name">Last Name</string>
+    <string name="jersey_number">Jersey Number:</string>
+    <string name="birth_date">Birth Date</string>
+    <string name="gender">Gender:</string>
+    <string name="male">Male</string>
+    <string name="female">Female</string>
+    <string name="profile_photo">Upload a profile photo</string>
+    <string name="camera">Camera</string>
+    <string name="gallery">Gallery</string>
+    <string name="first_parent">First Parent:</string>
+    <string name="mr">Mr.</string>
+    <string name="mrs">Mrs.</string>
+    <string name="ms">Ms.</string>
+    <string name="miss">Miss</string>
+    <string name="phone_number">Phone Number</string>
+    <string name="second_parent">Second Parent:</string>
+    <string name="medical">Medical</string>
+    <string name="parent_names">Parent\'s Names: </string>
+
+
 </resources>

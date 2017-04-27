@@ -36,7 +36,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        android:hint="Password"
+        android:hint="@string/password"
         android:inputType="textPassword" />
 
     <TextView
@@ -59,21 +59,21 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:onClick="goRegister"
-            android:text="Register" />
+            android:text="@string/register" />
 
         <Button
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:onClick="login"
-            android:text="Sign in" />
+            android:text="@string/sign_in" />
     </LinearLayout>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:text="Or sign in using:"
+        android:text="@string/sign_in_using"
         android:textSize="20sp" />
 
     <LinearLayout
@@ -88,13 +88,13 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Facebook" />
+            android:text="@string/facebook" />
 
         <Button
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Google" />
+            android:text="@string/google" />
     </LinearLayout>
 
 
